@@ -1,0 +1,28 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    <script type="text/javascript" src="https://openlayers.org/en/v3.14.2/build/ol.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/q.js/1.4.1/q.min.js"></script>
+</head>
+<body>
+    <div id="map" class="map"></div>
+    <script>
+        var defaults = {
+            maxZoom: @System.Configuration.ConfigurationManager.AppSettings["maxZoom"],
+            minZoom: @System.Configuration.ConfigurationManager.AppSettings["minZoom"],
+            final_zoom: @System.Configuration.ConfigurationManager.AppSettings["final_zoom"],
+            initial_zoom: @System.Configuration.ConfigurationManager.AppSettings["initial_zoom"],            
+            zoom_duration: @System.Configuration.ConfigurationManager.AppSettings["zoom_duration"],
+            panTo_duration: @System.Configuration.ConfigurationManager.AppSettings["panTo_duration"]
+        }
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
